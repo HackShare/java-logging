@@ -8,5 +8,30 @@
     <artifactId>java-logging</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    
+    <packaging>jar</packaging>
+    <name>Suite of Java Logger plugins</name>
+    <description>A variety of java.util.logging formatters, adapters and filters.</description>
+    <url>https://github.com/fommil/java-logging</url>
+    <licenses>
+        <license>
+            <name>LGPL</name>
+            <url>http://www.gnu.org/licenses/lgpl.txt</url>
+        </license>
+    </licenses>
+    <scm>
+        <url>https://github.com/fommil/java-logging</url>
+        <connection>scm:git:git@github.com:fommil/java-logging.git</connection>
+    </scm>
+    <developers>
+        <developer>
+            <name>Sam Halliday</name>
+            <id>fommil</id>
+            <email>sam.halliday@gmail.com</email>
+        </developer>
+    </developers>
+    <issueManagement>
+        <system>github</system>
+        <url>https://github.com/fommil/java-logging</url>
+    </issueManagement>
+
 </project>
