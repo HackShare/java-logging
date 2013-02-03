@@ -8,6 +8,11 @@
     <artifactId>java-logging</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <parent>
+        <groupId>org.sonatype.oss</groupId>
+        <artifactId>oss-parent</artifactId>
+        <version>7</version>
+    </parent>
     <packaging>jar</packaging>
     <name>Suite of Java Logger plugins</name>
     <description>A variety of java.util.logging formatters, adapters and filters.</description>
@@ -21,6 +26,7 @@
     <scm>
         <url>https://github.com/fommil/java-logging</url>
         <connection>scm:git:git@github.com:fommil/java-logging.git</connection>
+        <developerConnection>scm:git:git@github.com:fommil/java-logging.git</developerConnection>
     </scm>
     <developers>
         <developer>
@@ -34,4 +40,21 @@
         <url>https://github.com/fommil/java-logging</url>
     </issueManagement>
 
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>sign-artifacts</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>sign</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 </project>
