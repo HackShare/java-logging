@@ -25,8 +25,8 @@
     </licenses>
     <scm>
         <url>https://github.com/fommil/java-logging</url>
-        <connection>scm:git:git@github.com:fommil/java-logging.git</connection>
-        <developerConnection>scm:git:git@github.com:fommil/java-logging.git</developerConnection>
+        <connection>scm:git:git//github.com/fommil/java-logging.git</connection>
+        <developerConnection>scm:git:git//github.com/fommil/java-logging.git</developerConnection>
     </scm>
     <developers>
         <developer>
@@ -37,7 +37,7 @@
     </developers>
     <issueManagement>
         <system>github</system>
-        <url>https://github.com/fommil/java-logging</url>
+        <url>https://github.com/fommil/java-logging/issues</url>
     </issueManagement>
 
     <prerequisites>
@@ -88,6 +88,22 @@
                         </goals>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>buildnumber-maven-plugin</artifactId>
+                <version>1.2</version>
+                <executions>
+                    <execution>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>create</goal>
+                        </goals>
+                     </execution>
+                </executions>
+                <configuration>
+                    <!-- <doCheck>true</doCheck> -->
+                </configuration>
             </plugin>
             <!-- http://stackoverflow.com/questions/4725668 -->
             <plugin>
