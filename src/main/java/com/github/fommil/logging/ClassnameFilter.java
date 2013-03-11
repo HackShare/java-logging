@@ -26,16 +26,29 @@ public class ClassnameFilter implements Filter {
     public boolean isLoggable(LogRecord record) {
         LogManager manager = LogManager.getLogManager();
         String source = record.getSourceClassName();
-        if (source == null)
-            return true;
-        String prop = source + ".level";
-        String level = manager.getProperty(prop);
-        if (level == null)
-            return true;
-        // Level parse errors reported on startup
-        Level allowed = Level.parse(level);
+
+        Level allowed = getLevel(manager, source);
         if (allowed == Level.OFF)
             return false;
         return (allowed.intValue() <= record.getLevel().intValue());
+    }
+
+    // recursively ascend the fqn and check the properties
+    // visible for testing
+    Level getLevel(LogManager manager, String fqn) {
+        String prop = fqn == null ? ".level" : fqn + ".level";
+        String level = manager.getProperty(prop);
+        if (level != null)
+            return Level.parse(level);
+        if (fqn == null || fqn.isEmpty())
+            return Level.ALL;
+
+        int dollar = fqn.lastIndexOf("$");
+        if (dollar > 0) return getLevel(manager, fqn.substring(0, dollar));
+
+        int dot = fqn.lastIndexOf(".");
+        if (dot <= 0) return getLevel(manager, "");
+
+        return getLevel(manager, fqn.substring(0, dot));
     }
 }
