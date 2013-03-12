@@ -46,6 +46,7 @@
         <maven>3.0.3</maven>
     </prerequisites>
 
+    <!-- mvn versions:display-dependency-updates -->
     <dependencies>
         <!-- Use SLF4J to redirect all other popular logging frameworks to JUL -->
         <dependency>
@@ -76,7 +77,7 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.10</version>
+            <version>4.11</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -112,6 +113,14 @@
                 </executions>
                 <configuration>
                     <!-- <doCheck>true</doCheck> -->
+                </configuration>
+            </plugin>
+            <plugin>
+                <!-- don't forget to git push with tags after releases -->
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <configuration>
+                  <pushChanges>false</pushChanges>
                 </configuration>
             </plugin>
         </plugins>
