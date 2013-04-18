@@ -10,13 +10,23 @@ Suite of Java Logger plugins:
 Installation
 ============
 
+Releases are in Maven Central:
+
+```xml
+<dependency>
+  <groupId>com.github.fommil</groupId>
+  <artifactId>java-logging</artifactId>
+  <version>1.0</version>
+</dependency>
+```
+
 Snapshots are distributed on Sonatype's Snapshot Repository:
 
 ```xml
 <dependency>
   <groupId>com.github.fommil</groupId>
   <artifactId>java-logging</artifactId>
-  <version>1.0-SNAPSHOT</version>
+  <version>1.1-SNAPSHOT</version>
 </dependency>
 ```
 
