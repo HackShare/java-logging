@@ -19,7 +19,8 @@ public class ClassnameFilterTest {
 
     @Before
     public void setup() throws Exception {
-        String config = ".level = CONFIG\n"
+        String config = ".level = SEVERE\n"
+                + "com.github.fommil.logging.ClassnameFilter.level = CONFIG\n"
                 + "my.package.level = INFO\n"
                 + "my.package.Class.level = WARNING\n"
                 + "my.package.Class$Inner.level = FINER";

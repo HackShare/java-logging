@@ -16,11 +16,18 @@ import java.util.logging.*;
  * <p/>
  * Classnames need to be calculated for most log messages:
  * there is therefore a performance cost to use this filter.
+ * <p/>
+ * The default level is specified by {@value #DEFAULT_LEVEL_PROP},
+ * not {@code .level} as one might have expected. This is to workaround
+ * JUL's use of {@code .level} elsewhere which may filter before reaching
+ * this.
  *
  * @author Sam Halliday
  * @see <a href="http://akka.io">Akka</a>
  */
 public class ClassnameFilter implements Filter {
+
+    private static final String DEFAULT_LEVEL_PROP = "com.github.fommil.logging.ClassnameFilter.level";
 
     @Override
     public boolean isLoggable(LogRecord record) {
@@ -36,12 +43,16 @@ public class ClassnameFilter implements Filter {
     // recursively ascend the fqn and check the properties
     // visible for testing
     Level getLevel(LogManager manager, String fqn) {
-        String prop = fqn == null ? ".level" : fqn + ".level";
-        String level = manager.getProperty(prop);
+        if (fqn == null || fqn.isEmpty()) {
+            String level = manager.getProperty(DEFAULT_LEVEL_PROP);
+            if (level != null)
+                return Level.parse(level);
+            return Level.ALL;
+        }
+
+        String level = manager.getProperty(fqn + ".level");
         if (level != null)
             return Level.parse(level);
-        if (fqn == null || fqn.isEmpty())
-            return Level.ALL;
 
         int dollar = fqn.lastIndexOf("$");
         if (dollar > 0) return getLevel(manager, fqn.substring(0, dollar));
