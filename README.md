@@ -10,6 +10,8 @@ Suite of Java Logger plugins:
 Installation
 ============
 
+It is sufficient to add this library to the `runtime` classpath.
+
 Releases are in Maven Central:
 
 ```xml
@@ -17,6 +19,7 @@ Releases are in Maven Central:
   <groupId>com.github.fommil</groupId>
   <artifactId>java-logging</artifactId>
   <version>1.0</version>
+  <scope>runtime</scope>
 </dependency>
 ```
 
@@ -27,6 +30,7 @@ Snapshots are distributed on Sonatype's Snapshot Repository:
   <groupId>com.github.fommil</groupId>
   <artifactId>java-logging</artifactId>
   <version>1.1-SNAPSHOT</version>
+  <scope>runtime</scope>
 </dependency>
 ```
 
