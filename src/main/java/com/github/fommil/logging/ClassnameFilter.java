@@ -7,16 +7,16 @@ import java.util.logging.*;
  * Custom filter that matches categories defined in the
  * logging properties file against the classname of
  * {@link LogRecord}s.
- * <p/>
+ * <p>
  * Note that this may appear to be the behaviour of the
  * default filter, but in fact the default filter is
  * matching against the {@link Logger}'s name and
  * convention is to use classnames as logger names. This
  * is not true in Actor systems such as Akka.
- * <p/>
+ * <p>
  * Classnames need to be calculated for most log messages:
  * there is therefore a performance cost to use this filter.
- * <p/>
+ * <p>
  * The default level is specified by {@value #DEFAULT_LEVEL_PROP},
  * not {@code .level} as one might have expected. This is to workaround
  * JUL's use of {@code .level} elsewhere which may filter before reaching
