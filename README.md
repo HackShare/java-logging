@@ -69,7 +69,8 @@ com.github.fommil.logging.CustomFormatter.format = %L: %m [%c] (%n) %e %E %S
 com.github.fommil.logging.CustomFormatter.stackExclude = \
   org.jetbrains. com.intellij java. sun. com.sun
 
-.level = WARNING
+# this is the default, not .level (because JUL uses it magically elsewhere)
+com.github.fommil.logging.ClassnameFilter.level = WARNING
 
 # Note that ':' (colon) characters must be escaped in .level properties
 #EventStream(akka\://MySystem/user/actor).level = WARNING
