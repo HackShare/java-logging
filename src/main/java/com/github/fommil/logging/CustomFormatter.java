@@ -19,7 +19,7 @@ import java.util.logging.LogRecord;
  * <li>{@code %m} - message</li>
  * <li>{@code %L} - log level</li>
  * <li>{@code %n} - name of the logger</li>
- * <li>{@code %t} - a timestamp (in ISO-8601 "yyyy-MM-dd HH:mm:ss Z" format)</li>
+ * <li>{@code %t} - a timestamp (in ISO-8601 "yyyy-MM-dd'T'HH:mm:ss.SSSZ" format)</li>
  * <li>{@code %M} - source method name (if available, otherwise "?")</li>
  * <li>{@code %c} - source class name (if available, otherwise "?")</li>
  * <li>{@code %C} - source simple class name (if available, otherwise "?")</li>
@@ -45,7 +45,7 @@ public class CustomFormatter extends Formatter {
 
     private final MessageFormat messageFormat;
 
-    private final DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss Z");
+    private final DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ");
 
     private final String[] excluded;
 
