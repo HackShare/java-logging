@@ -18,7 +18,7 @@ Releases are in Maven Central:
 <dependency>
   <groupId>com.github.fommil</groupId>
   <artifactId>java-logging</artifactId>
-  <version>1.0</version>
+  <version>1.1</version>
   <scope>runtime</scope>
 </dependency>
 ```
